@@ -14,6 +14,20 @@ class Item extends Component {
     }
   }
 
+  componentDidMount() {
+    const { props, state } = this.props;
+    const itemRef = this.item.current;
+
+    if (
+      !props.multi &&
+      props.keepSelectedInList &&
+      state.values.length > 0 &&
+      state.values[0][[props.labelField]] === itemRef.innerText
+    ) {
+      itemRef.scrollIntoView();
+    }
+  }
+
   render() {
     const { props, state, methods, item, itemIndex } = this.props;
 
