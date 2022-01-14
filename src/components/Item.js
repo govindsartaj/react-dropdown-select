@@ -24,7 +24,7 @@ class Item extends Component {
       state.values.length > 0 &&
       state.values[0][[props.labelField]] === itemRef.innerText
     ) {
-      itemRef.scrollIntoView();
+      itemRef.scrollIntoView({ block: 'nearest', inline: 'start' });
     }
   }
 
